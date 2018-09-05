@@ -144,45 +144,6 @@ var Coyote = function (){
 	
 	
 	/* Map initialization js*/
-	if( $('#map_canvas').length > 0 ){	
-		var settings = {
-			zoom: 20,
-			center: new google.maps.LatLng(12.946104, 80.245045),
-			mapTypeControl: false,
-			scrollwheel: false,
-			draggable: true,
-			panControl:false,
-			scaleControl: false,
-			zoomControl: true,
-			streetViewControl:true,
-			navigationControl: true,
-			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			var map = new google.maps.Map(document.getElementById("map_canvas"), settings);	
-		google.maps.event.addDomListener(window, "resize", function() {
-			var center = map.getCenter();
-			google.maps.event.trigger(map, "resize");
-			map.setCenter(center);
-		});	
-		var infowindow = new google.maps.InfoWindow({
-			content: contentString
-		});	
-		var companyImage = new google.maps.MarkerImage('img/pin-dark.png',
-			new google.maps.Size(58,63),<!-- Width and height of the marker -->
-			new google.maps.Point(0,0),
-			new google.maps.Point(35,20)<!-- Position of the marker -->
-		);
-		var companyPos = new google.maps.LatLng(12.946104, 80.245045);	
-		var companyMarker = new google.maps.Marker({
-			position: companyPos,
-			map: map,
-			icon: companyImage,               
-			title:"Our Office",
-			zIndex: 3});	
-		google.maps.event.addListener(companyMarker, 'click', function() {
-			infowindow.open(map,companyMarker);
-		});
-	}
-	
 	/* Constellation js*/
 	   var particles = {
         dotColor: '#fff',
